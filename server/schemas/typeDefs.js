@@ -6,6 +6,7 @@ type User {
     username: String
     email: String
   }
-`;
+`
+;
 
 module.exports = typeDefs;
