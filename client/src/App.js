@@ -16,9 +16,7 @@ function App() {
   return (
     <Box className="main" bgcolor="primary.main">
       <Nav></Nav>
-      <main>
-        <Login></Login>
-      </main>
+      
     </Box>
   );
 }
