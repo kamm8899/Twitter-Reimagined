@@ -40,12 +40,12 @@ type Query {
 type Mutation {
   addPost(thoughtText: String!): Post
   addComment(thoughtId: ID!, reactionBody: String!): Post
+  addUser(username: String!, email: String!, password: String!, firstName: String!, lastName: String!): User
+
 }
 `;
-;
 
 // login(email: String!, password: String!): Auth
-// addUser(username: String!, email: String!, password: String!): Auth
 
 // type Auth {
 //   token: ID!

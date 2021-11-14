@@ -20,8 +20,9 @@ const startServer = async () => {
   // create a new Apollo server and pass in our schema data
   const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
     // context: authMiddleware
+    context: function ({ req }) { return req}
   });
 
   // Start the Apollo server
