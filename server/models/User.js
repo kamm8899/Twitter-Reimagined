@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
+const { Schema, Model } = mongoose;
 const bcrypt = require('bcrypt');
-const Order = require('./Order');
 
 const userSchema = new Schema({
   firstName: {
@@ -25,9 +24,18 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  orders: [Order.schema]
+  posts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Post'
+    }
+  ]
 });
 
-const User = mongoose.model('User', userSchema);
+userSchema.virtual('postCount').get(function () {
+  return this.posts.length;
+})
+
+const User = model('User', userSchema);
 
 module.exports = User;
