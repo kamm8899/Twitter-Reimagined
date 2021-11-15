@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Nav from './component/navbar';
-import Login from './component/login';
 
 
 function App() {
