@@ -15,7 +15,7 @@ const LoginForm = () => {
                             <TextField
                                 required
                                 id="outlined-error-helper-text"
-                                label="Name"
+                                label="Username"
                                 fullWidth
                                 color="common"
                                 focused
