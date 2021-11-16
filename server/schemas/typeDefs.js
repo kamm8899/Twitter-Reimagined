@@ -39,8 +39,8 @@ type Query {
 }
 
 type Mutation {
-  addPost(thoughtText: String!): Post
-  addComment(thoughtId: ID!, reactionBody: String!): Post
+  addPost(postText: String!, username: String!): Post
+  addComment(postId: ID!, reactionBody: String!): Post
   addUser(username: String!, email: String!, password: String!, firstName: String!, lastName: String!): User
 
 }

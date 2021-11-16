@@ -44,6 +44,7 @@ const resolvers = {
         },
 
         addPost: async (parent, args, context) => {
+            console.log(context);
             if (context.user) {
                 const post = await Post.create(args);
 
