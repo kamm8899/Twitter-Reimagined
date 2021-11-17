@@ -42,7 +42,7 @@ type Mutation {
   addPost(postText: String!, username: String!): Post
   addComment(postId: ID!, reactionBody: String!): Post
   addUser(username: String!, email: String!, password: String!, firstName: String!, lastName: String!): Auth
-
+  login(email: String!, password: String!): Auth
 }
 
 type Auth {

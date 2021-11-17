@@ -6,7 +6,7 @@ const resolvers = {
     Query: {
         me: async (parent, args, context) => {
             if (context.user) {
-                const userData = await userData
+                const userData = await User
                     .findOne({ _id: context.user._id })
                     .select("-__V -password")
                     .populate("posts")
@@ -42,31 +42,32 @@ const resolvers = {
     Mutation: {
         addUser: async (parent, args) => {
             const user = await User.create(args);
+            // should we remove password from being sent on user add? (using select())
             const token = signToken(user);
           
             return { token, user };
           },
-        //   login: async (parent, { email, password }) => {
-        //     const user = await User.findOne({ email });
+          login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
           
-        //     if (!user) {
-        //       throw new AuthenticationError('Incorrect credentials');
-        //     }
+            if (!user) {
+              throw new AuthenticationError('Incorrect credentials');
+            }
           
-        //     const correctPw = await user.isCorrectPassword(password);
+            const correctPw = await user.isCorrectPassword(password);
           
-        //     if (!correctPw) {
-        //       throw new AuthenticationError('Incorrect credentials');
-        //     }
+            if (!correctPw) {
+              throw new AuthenticationError('Incorrect credentials');
+            }
           
-        //     const token = signToken(user);
-        //     return { token, user };
-        //   },
+            const token = signToken(user);
+            return { token, user };
+          },
 
         addPost: async (parent, args, context) => {
             console.log(context);
             if (context.user) {
-                const post = await Post.create(args);
+                const post = await Post.create({ ...args, username: context.user.username });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
