@@ -29,6 +29,10 @@ type User {
   posts: [Post]
   postCount: Int
 }
+type Auth {
+  token: ID!
+  user: User
+}
 
 type Query {
   me: User
@@ -38,20 +42,20 @@ type Query {
   post(_id: ID!): Post
 }
 
+
+
 type Mutation {
   addPost(postText: String!, username: String!): Post
   addComment(postId: ID!, reactionBody: String!): Post
   addUser(username: String!, email: String!, password: String!, firstName: String!, lastName: String!): User
 
 }
+
 `;
 
 // login(email: String!, password: String!): Auth
 
-// type Auth {
-//   token: ID!
-//   user: User
-// }
+
 
 
 module.exports = typeDefs;
