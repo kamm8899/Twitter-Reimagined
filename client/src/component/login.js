@@ -6,7 +6,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
-
+import Typography from '@mui/material/Typography';
 import LoginForm from './loginForm';
 import RegistrationForm from './registrationForm';
 
@@ -27,7 +27,7 @@ export default function Login({forms}) {
 
   return (
     <div>
-      <Button onClick={handleClickOpen}>
+      <Button onClick={handleClickOpen} color="secondary">
         Login
       </Button>
       <Dialog
@@ -39,14 +39,15 @@ export default function Login({forms}) {
       >
         <DialogTitle>
             Login
+            &#9733;	&#9733;	&#9733;	&#9733;	
+            &#9733;	&#9733;	&#9733; &#9733;
         </DialogTitle>
         <DialogContent>
             <LoginForm />
             {/* <RegistrationForm /> */}
+            
         </DialogContent>
-        <DialogActions>
-            <Button onClick={handleClose}>Sign Up</Button>
-        </DialogActions>
+        
       </Dialog>
     </div>
   );

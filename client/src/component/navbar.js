@@ -37,15 +37,15 @@ const Nav = (props) => {
    
     return (
         <>
-            <AppBar style={{backgroundColor:"black"}} position="static">
-                <Toolbar >
+            <AppBar position="static">
+                <Toolbar>
                 <Grid container>
                     <img src={onlybans} style={{ width:"200px"}}/>
                 </Grid>
                 <Login />
-                <Button>Dashboard</Button>
-                <Button>Login</Button>
-                <Button>Donate</Button>
+                <Button color="secondary">Dashboard</Button>
+                <Button color="secondary">Login</Button>
+                <Button color="secondary">Donate</Button>
                 </Toolbar>
             </AppBar>
         </>

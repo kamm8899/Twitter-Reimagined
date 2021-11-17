@@ -3,10 +3,40 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      //background color
+      main: "#000000"
+    },
+    secondary: {
+      //nav/footer color
+      main: "#2671D6"
+    },
+    text: {
+      primary: "#fff"
+    },
+    common: {
+      black: "#fff"
+    },
+    error: {
+      main: "#fff"
+    },
+    background: {
+      paper: "#000000"
+    }
+    
+  }
+})
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

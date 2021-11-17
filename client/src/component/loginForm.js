@@ -14,28 +14,34 @@ const LoginForm = () => {
                         <Grid xs={12} item>
                             <TextField
                                 required
+                                error
                                 id="outlined-error-helper-text"
                                 label="Username"
                                 fullWidth
                                 color="common"
                                 focused
+                                style={{marginBottom:"10px"}}
                             />
                         </Grid>
                         <Grid xs={12} item>
                             <TextField
                                 required
+                                error
                                 type="password"
                                 id="outlined-error-helper-text"
                                 label="Password"
                                 fullWidth
                                 color="common"
                                 focused
+                                style={{marginBottom:"10px"}}
+
                             />
                         </Grid>
-                        <Grid sx={{ mt: 0.25 }} xs={12} item>
-                            <Button type="submit">
+                        <Grid sx={{ mt: 0.25 }} xs={12} item >
+                            <Button type="submit"  color="secondary" variant="outlined" fullWidth style={{ border: '2px solid', marginBottom:"15px", fontSize:"22px"}}>
                                 Login
                             </Button>
+                            <Button color="error" variant="outlined" fullWidth style={{ border: '2px solid', fontSize:"22px" }}>Sign Up</Button>
                         </Grid>
                     </Grid>
                 </form>
