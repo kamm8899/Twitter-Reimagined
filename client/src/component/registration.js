@@ -7,13 +7,13 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import Typography from '@mui/material/Typography';
-import LoginForm from './loginForm';
+import RegistrationForm from './registrationForm';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function Login({forms}) {
+export default function Registration () {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -26,8 +26,8 @@ export default function Login({forms}) {
 
   return (
     <div>
-      <Button onClick={handleClickOpen} color="secondary">
-        Login
+      <Button onClick={handleClickOpen} color="error" variant="outlined" fullWidth style={{ border: '2px solid', fontSize:"22px" }}>
+        Sign Up
       </Button>
       <Dialog
         open={open}
@@ -37,14 +37,13 @@ export default function Login({forms}) {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle>
-            Login
+            Register
             &#9733;	&#9733;	&#9733;	&#9733;	
             &#9733;	&#9733;	&#9733; &#9733;
         </DialogTitle>
         <DialogContent>
-            <LoginForm />        
+            <RegistrationForm />   
         </DialogContent>
-        
       </Dialog>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Button, TextField, CardContent } from '@mui/material';
 import Box from '@mui/material/Box';
+import Registration from './registration'
 
 
 
@@ -41,7 +42,7 @@ const LoginForm = () => {
                             <Button type="submit"  color="secondary" variant="outlined" fullWidth style={{ border: '2px solid', marginBottom:"15px", fontSize:"22px"}}>
                                 Login
                             </Button>
-                            <Button color="error" variant="outlined" fullWidth style={{ border: '2px solid', fontSize:"22px" }}>Sign Up</Button>
+                            <Registration />
                         </Grid>
                     </Grid>
                 </form>
