@@ -44,7 +44,6 @@ const Nav = (props) => {
                 </Grid>
                 <Login />
                 <Button color="secondary">Dashboard</Button>
-                <Button color="secondary">Login</Button>
                 <Button color="secondary">Donate</Button>
                 </Toolbar>
             </AppBar>

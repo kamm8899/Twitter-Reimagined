@@ -94,6 +94,13 @@ export default function Login() {
           </Tabs>
         </Box>
         <DialogContent>
+          <Box sx={{ textAlign: 'center' }}>
+          <Typography sx={{ letterSpacing: 15 }}>&#9733; &#9733; &#9733;	&#9733;	&#9733;	&#9733; &#9733; &#9733; &#9733; &#9733;</Typography>
+          <Typography sx={{ letterSpacing: 15 }}>&#9733; &#9733; &#9733;	&#9733;	&#9733;	&#9733; &#9733; &#9733; &#9733; &#9733;</Typography>
+          <Typography sx={{ letterSpacing: 15 }}>&#9733; &#9733; &#9733;	&#9733;	&#9733;	&#9733; &#9733; &#9733; &#9733; &#9733;</Typography>
+          <Typography sx={{ letterSpacing: 15 }}>&#9733; &#9733; &#9733;	&#9733;	&#9733;	&#9733; &#9733; &#9733; &#9733; &#9733;</Typography>
+          <Typography sx={{ letterSpacing: 15 }}>&#9733; &#9733; &#9733;	&#9733;	&#9733;	&#9733; &#9733; &#9733; &#9733; &#9733;</Typography>
+          </Box>
           <TabPanel value={value} index={0}>
             <LoginForm />
           </TabPanel>
