@@ -48,9 +48,6 @@ const RegistrationForm = () => {
                         <Button type="submit" color="secondary" variant="outlined" fullWidth style={{ border: '2px solid', marginBottom:"15px", fontSize:"22px"}}>
                             Sign Up
                         </Button>
-                        <Button color="error" variant="outlined" fullWidth style={{ border: '2px solid', fontSize:"22px" }}>
-                            Login
-                        </Button>
                     </Grid>
                 </Grid>
             </form>
