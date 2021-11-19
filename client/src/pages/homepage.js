@@ -13,7 +13,8 @@ const Home = () => {
     );
     return (
         <>
-            <Box style={{ marginTop: 10}}>
+        {/* Chase the card component gets imported here */}
+           <Box style={{ marginTop: 10}}>
                 <Card sx={{ minWidth: 275 }}>
                     <CardContent>
                         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -26,7 +27,7 @@ const Home = () => {
                             adjective
                         </Typography>
                         <Typography variant="body2">
-                            well meaning and kindly.
+                            well  meaning and kindly.
                             <br />
                             {'"a benevolent smile"'}
                         </Typography>
