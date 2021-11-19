@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Nav from './component/navbar';
-import Home from './pages/homepage.js';
+import Home from './pages/homepage'
 
 function App() {
   // const [pages] = useState([
@@ -13,15 +13,13 @@ function App() {
   // const [currentPage, setCurrentPage] = useState(pages[0]);
 
   return (
-   
     <>
-     <Box className="main" bgcolor="primary.main">
+    <Box>
       <Nav></Nav>
     </Box>
-    <Box>
-    <Home></Home>
+    <Box className="main" bgcolor="primary.main">
+      <Home></Home>
     </Box>
-
     </>
   );
 }
