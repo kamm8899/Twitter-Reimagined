@@ -37,8 +37,8 @@ const Nav = (props) => {
    
     return (
         <>
-            <AppBar position="static">
-                <Toolbar>
+            <AppBar position="static" sx={{fontFamily: "gotham"}}>
+                <Toolbar sx={{fontFamily: "gotham"}}>
                 <Grid container>
                     <img src={onlybans} style={{ width:"200px"}}/>
                 </Grid>

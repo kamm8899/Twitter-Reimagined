@@ -6,7 +6,7 @@ const LoginForm = () => {
 
     return (
         <Box style={{ maxWidth: 650, margin: "0 auto", padding: "20px 5px" }}>
-            <CardContent>
+            <CardContent sx={{fontFamily: "gotham"}}>
                 <form>
                     <Grid container spacing={1}>
                         <Grid xs={12} item>

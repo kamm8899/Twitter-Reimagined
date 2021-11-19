@@ -27,7 +27,10 @@ const theme = createTheme({
     background: {
       paper: "#000000"
     }
-    
+  
+  },
+  typography:{
+    fontFamily:'gotham'
   }
 })
 
