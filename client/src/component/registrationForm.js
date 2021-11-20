@@ -46,6 +46,8 @@ const RegistrationForm = () => {
             username: '',
             email: '',
             password: '',
+            firstName: '',
+            lastName: '',
         });
     };
 
@@ -100,6 +102,38 @@ const RegistrationForm = () => {
                                 value={userFormData.password}
                                 text="password"
                                 name="password"
+                            />
+                        </Grid>
+                        <Grid xs={12} item>
+                            <TextField
+                                required
+                                error
+                                type="firstName"
+                                id="outlined-error-helper-text"
+                                label="First Name"
+                                fullWidth
+                                color="common"
+                                focused
+                                onChange={handleInputChange}
+                                value={userFormData.firstName}
+                                text="firstName"
+                                name="firstName"
+                            />
+                        </Grid>
+                        <Grid xs={12} item>
+                            <TextField
+                                required
+                                error
+                                type="lastName"
+                                id="outlined-error-helper-text"
+                                label="Last Name"
+                                fullWidth
+                                color="common"
+                                focused
+                                onChange={handleInputChange}
+                                value={userFormData.lastName}
+                                text="lastName"
+                                name="lastName"
                             />
                         </Grid>
                         <Grid sx={{ mt: 0.25 }} xs={12} item>
