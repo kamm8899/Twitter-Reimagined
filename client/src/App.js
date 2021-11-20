@@ -15,10 +15,10 @@ function App() {
   return (
     <>
     <Box>
-      <Nav></Nav>
+      <Nav />
     </Box>
     <Box className="main" bgcolor="primary.main">
-      <Home></Home>
+      <Home />
     </Box>
     </>
   );
