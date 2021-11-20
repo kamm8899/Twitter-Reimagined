@@ -59,6 +59,9 @@ const LoginForm = () => {
                                 focused
                                 style={{marginBottom:"10px"}}
                                 onChange={handleInputChange}
+                                value={userFormData.email}
+                                text="email"
+                                name="email"
                             />
                         </Grid>
                         <Grid xs={12} item>
@@ -73,10 +76,13 @@ const LoginForm = () => {
                                 focused
                                 style={{marginBottom:"10px"}}
                                 onChange={handleInputChange}
+                                value={userFormData.password}
+                                text="password"
+                                name="password"
                                 />
                         </Grid>
                         <Grid sx={{ mt: 0.25 }} xs={12} item >
-                            <Button type="submit"  color="secondary" variant="outlined" fullWidth style={{ border: '2px solid', marginBottom:"15px", fontSize:"22px"}} disabled={(userFormData.email && userFormData.password)}>
+                            <Button type="submit"  color="secondary" variant="outlined" fullWidth style={{ border: '2px solid', marginBottom:"15px", fontSize:"22px"}} disabled={!(userFormData.email && userFormData.password)}>
                                 Login
                             </Button>
                         </Grid>
