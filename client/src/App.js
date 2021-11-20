@@ -2,6 +2,27 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Nav from './component/navbar';
 import Home from './pages/homepage'
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import {setContext} from '@apollo/client/link/context';
+
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, {headers})=>{
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization:token ? `Bearer ${token}`:"",
+    }
+  };
+});
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+});
 
 function App() {
   // const [pages] = useState([
@@ -13,6 +34,7 @@ function App() {
   // const [currentPage, setCurrentPage] = useState(pages[0]);
 
   return (
+    <ApolloProvider client={client}>
     <>
     <Box>
       <Nav />
@@ -21,6 +43,8 @@ function App() {
       <Home />
     </Box>
     </>
+    </ApolloProvider>
+
   );
 }
 
