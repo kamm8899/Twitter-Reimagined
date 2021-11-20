@@ -46,7 +46,7 @@ const LoginForm = () => {
     return (
         <Box style={{ maxWidth: 650, margin: "0 auto", padding: "20px 5px" }}>
             <CardContent sx={{fontFamily: "gotham"}}>
-                <form noValidate validated={validated} onSubmit="handleFormSubmit()">
+                <form noValidate validated={validated} onSubmit={handleFormSubmit}>
                     <Grid container spacing={1}>
                         <Grid xs={12} item>
                             <TextField
