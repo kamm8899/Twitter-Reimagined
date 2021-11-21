@@ -29,19 +29,20 @@ const ExpandMore = styled((props) => {
 }));
 
 
-const Post = ({ post, username }) => {
-    const [expanded, setExpanded] = React.useState(false);
+const Post = () => {
+    // const [expanded, setExpanded] = React.useState(false);
     const [showAlert, setShowAlert] = useState(false);
     const { loading, data } = useQuery(ALL_POST);
-    const postData = data?.allPost || {};
+    const postData = data?.allPost || [];
     // if (!postData.length) {
     //     return <h3>No Post Yet</h3>;
     // }
+    // console.log(data?.allPost || [])
+    console.log(postData)
 
-
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
+    // const handleExpandClick = () => {
+    //     setExpanded(!expanded);
+    // };
 
     if (loading) {
         return <Card>LOADING...</Card>;
@@ -49,78 +50,30 @@ const Post = ({ post, username }) => {
     }
     return (
         <Box>
-            {/* {post && 
-    post.map(postData => ( */}
-            <Card sx={{ background: '#414a4c', mb: 2 }}>
-                {/* placeholder to be replaced with username prop above*/}
-                <CardContent>
-                    <Typography variant='h5' gutterbottom>
-                        {postData.username}
-                    </Typography>
-                </CardContent>
-                <CardContent>
-                    <Typography variant="body2">
-                        <p>{postData.postText}</p>
-                        sample post body
-                    </Typography>
-                </CardContent>
-                <CardActions disableSpacing>
-                    <ReplyForm />
-                    <ExpandMore
-                        expand={expanded}
-                        onClick={handleExpandClick}
-                        aria-expanded={expanded}
-                        aria-label="Replies"
-                    >
-                        <ExpandMoreIcon />
-                    </ExpandMore>
-                </CardActions>
-                <Collapse in={expanded} timeout="auto" unmountOnExit>
-                    <CardContent>
-                        <Typography>
-                            SAMPLE REPLY
-                        </Typography>
-                    </CardContent>
-                </Collapse>
-            </Card>
+            {postData &&
+                postData.map(postData => (
+                    <div key={postData._id} >
+                        <Card sx={{ background: '#414a4c', mb: 2 }}>
+                            {/* placeholder to be replaced with username prop above*/}
+                            <CardContent>
+                                <Typography variant='h5' gutterbottom>
+                                    {postData.username}
+                                </Typography>
+                            </CardContent>
+                            <CardContent>
+                                <Typography variant="body2">
+                                    <p>{postData.postText}</p>
+                                    sample post body
+                                </Typography>
+                            </CardContent>
+                            <CardActions disableSpacing>
+                                <ReplyForm />
 
-            {/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
-            {/* THESE ARE JUST HARDCODED SAMPLES TO BE DELETED */}
-            {/* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV */}
-            {/* <Card sx={{ background: '#414a4c', mb: 2 }}>
-                <CardContent>
-                <Typography>
-                    SAMPLE REPLY
-                </Typography>
-                </CardContent>
-                <CardContent>
-                    <Typography variant="body2">
-                        sample post body
-                    </Typography>
-                </CardContent>
-                <IconButton aria-label="add a comment">
-                    <AddCommentIcon>
-                        <ReplyForm />
-                    </AddCommentIcon>
-                </IconButton>
-            </Card>
+                            </CardActions>
 
-            <Card sx={{ background: '#414a4c', mb: 2 }}>
-                <CardContent>
-                    <Typography variant='h5' gutterbottom>
-                        Username
-                    </Typography>
-                </CardContent>
-                <CardContent>
-                    <Typography variant="body2">
-                        sample post body
-                    </Typography>
-                </CardContent>
-                <IconButton aria-label="add a comment">
-                    <AddCommentIcon />
-                </IconButton>
-            </Card> */}
-
+                        </Card>
+                    </div>
+                ))}
         </Box>
 
     );
