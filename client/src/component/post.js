@@ -37,7 +37,7 @@ const Post = ({ post }) => {
         if(postData){
             console.log(postData);
         }
-     },[loading, postData])
+     },[loading, postData]);
     return (
         <Box>
             <Card sx={{ background: '#414a4c', mb: 2 }}>
