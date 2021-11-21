@@ -7,8 +7,9 @@ import Post from '../component/post';
 const Home = () => {
 
     return (
-        <Box sx={{ 
-            background: '#414a4c',
+        <Box color="primary"
+         sx={{ 
+            background: '#000000',
             py: 5,
             px: 2,
             maxWidth: '50%',
@@ -31,8 +32,10 @@ const Home = () => {
                     label="Say Something"
                     multiline
                     maxRows={4}
+                    focused
+                    color="secondary"
                     />
-                    <Button variant="outlined">Post</Button>
+                    <Button variant="outlined" color="secondary" sx={{mb:2}}>Post</Button>
                 <Post />
             </Box>
             {/* <Post /> */}

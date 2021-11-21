@@ -67,9 +67,10 @@ const Post = ({ post }) => {
                     onClick={handleExpandClick}
                     aria-expanded={expanded}
                     aria-label="Replies"
-                    >
+                    > 
                     <ExpandMoreIcon />
                 </ExpandMore>
+
             </Card>
 
             {/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
