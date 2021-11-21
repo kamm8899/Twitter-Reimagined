@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const GET_ME = gql
-`
+  `
 
      {
         me {
@@ -24,17 +24,45 @@ export const GET_ME = gql
         }
       }`;
 export const ALL_POST = gql
-`
+  `
 {
-  allPost{
-    username
-    postText
-    comments {
+  query {
+    allPost{
       _id
-      createdAt
-      commentBody
+      username
+      postText
+      commentCount
+      comments {
+        _id
+        commentBody
+        username
+        createdAt
+      }
+    }  
+  }
+}`
+
+export const ALL_USERS = gql
+  `
+{
+  query {
+    users {
+      _id
+      username
+      email
+      firstName
+      lastName
+      password
+      postCount
+      posts {
+        _id
+        commentCount
+        comments {
+          _id
+          createdAt
+          commentBody
+        }
+      }
     }
   }
-
-
 }`

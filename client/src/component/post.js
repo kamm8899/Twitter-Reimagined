@@ -11,8 +11,8 @@ import ReplyForm from './reply';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { styled } from '@mui/material/styles';
-import {ALL_POST} from "../utils/queries";
-import { useQuery} from "@apollo/client";
+import {ALL_POST, ALL_USERS} from "../utils/queries";
+import { useQuery } from "@apollo/client";
 import {useEffect} from 'react';
 import Collapse from '@mui/material/Collapse';
 
@@ -34,10 +34,11 @@ const Post = ({ post, username }) => {
     const [showAlert, setShowAlert] = useState(false);
     const {loading, data} = useQuery(ALL_POST);
     const postData = data?.allPost || {};
+    console.log(postData);
 
-    if (!postData.length) {
-        return <h3>No Post Yet</h3>;
-    }
+    // if (!postData.length) {
+    //     return <h3>No Post Yet</h3>;
+    // }
    
 
     const handleExpandClick = () => {
