@@ -13,7 +13,6 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { styled } from '@mui/material/styles';
 import {ALL_POST, ALL_USERS} from "../utils/queries";
 import { useQuery } from "@apollo/client";
-import {useEffect} from 'react';
 import Collapse from '@mui/material/Collapse';
 
 
@@ -35,10 +34,6 @@ const Post = ({ post, username }) => {
     const {loading, data} = useQuery(ALL_POST);
     const postData = data?.allPost || {};
     console.log(postData);
-
-    // if (!postData.length) {
-    //     return <h3>No Post Yet</h3>;
-    // }
    
 
     const handleExpandClick = () => {
@@ -48,82 +43,46 @@ const Post = ({ post, username }) => {
       if (loading) {
         return <Card>LOADING...</Card>;
 
+
   }
     return (
         <Box>
+            {post && 
+    post.map(postData => (
             <Card sx={{ background: '#414a4c', mb: 2 }}>
-                {/* placeholder to be replaced with username prop above*/}
-                <CardContent>
-                    <Typography variant='h5' gutterbottom>
-                    {postData.username}
-                    </Typography>
+            <CardContent>
+            <Typography variant='h5' gutterbottom>
+                {postData.username}
+                </Typography>
                 </CardContent>
-                {/* end placeholder username */}
                 <CardContent>
-                    <Typography variant="body2">
-                    <p>{postData.postText}</p>
-                        sample post body
-                    </Typography>
+                <Typography variant="body2">
+                <p>{postData.postText}</p>
+                </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                <ReplyForm />
+                <ReplyForm /* work on reply form*//>
                 <ExpandMore
                     expand={expanded}
                     onClick={handleExpandClick}
                     aria-expanded={expanded}
                     aria-label="Replies"
-                    >
-                    <ExpandMoreIcon />
+                >
+                <ExpandMoreIcon />
                 </ExpandMore>
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
-                    <CardContent>
-                        <Typography>
-                            SAMPLE REPLY
-                        </Typography>
-                    </CardContent>
+                <CardContent>
+                <Typography>
+                    SAMPLE REPLY
+                </Typography>
+                </CardContent>
                 </Collapse>
             </Card>
-
-            {/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
-            {/* THESE ARE JUST HARDCODED SAMPLES TO BE DELETED */}
-            {/* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV */}
-            <Card sx={{ background: '#414a4c', mb: 2 }}>
-                <CardContent>
-                    <Typography variant='h5' gutterbottom>
-                        Username
-                    </Typography>
-                </CardContent>
-                <CardContent>
-                    <Typography variant="body2">
-                        sample post body
-                    </Typography>
-                </CardContent>
-                <IconButton aria-label="add a comment">
-                    <AddCommentIcon>
-                        <ReplyForm />
-                    </AddCommentIcon>
-                </IconButton>
-            </Card>
-
-            <Card sx={{ background: '#414a4c', mb: 2 }}>
-                <CardContent>
-                    <Typography variant='h5' gutterbottom>
-                        Username
-                    </Typography>
-                </CardContent>
-                <CardContent>
-                    <Typography variant="body2">
-                        sample post body
-                    </Typography>
-                </CardContent>
-                <IconButton aria-label="add a comment">
-                    <AddCommentIcon />
-                </IconButton>
-            </Card>
-
+            ))}
         </Box>
-    )
-}
+
+    );
+};
 
 export default Post;
