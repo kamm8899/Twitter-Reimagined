@@ -26,7 +26,6 @@ export const GET_ME = gql
 export const ALL_POST = gql
   `
 {
-  query {
     allPost{
       _id
       username
@@ -37,7 +36,6 @@ export const ALL_POST = gql
         commentBody
         username
         createdAt
-      }
     }  
   }
 }`
