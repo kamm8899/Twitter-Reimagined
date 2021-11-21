@@ -77,7 +77,7 @@ const Post = ({ post }) => {
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography>
+                        <Typography variant="body2">
                             SAMPLE REPLY
                         </Typography>
                     </CardContent>
