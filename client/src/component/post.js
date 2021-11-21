@@ -12,7 +12,6 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { styled } from '@mui/material/styles';
 import {ALL_POST} from "../utils/queries";
 import { useQuery} from "@apollo/client";
-import {useEffect} from 'react';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -28,16 +27,12 @@ const ExpandMore = styled((props) => {
 
 const Post = ({ post }) => {
     const [expanded, setExpanded] = React.useState(false);
-    const { loading, postData} = useQuery(ALL_POST);
+    const {loading, data} = useQuery(ALL_POST);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
       };
-     useEffect(()=> {
-        if(postData){
-            console.log(postData);
-        }
-     },[loading, postData]);
+      console.log(data);
     return (
         <Box>
             <Card sx={{ background: '#414a4c', mb: 2 }}>
@@ -67,10 +62,9 @@ const Post = ({ post }) => {
                     onClick={handleExpandClick}
                     aria-expanded={expanded}
                     aria-label="Replies"
-                    > 
+                    >
                     <ExpandMoreIcon />
                 </ExpandMore>
-
             </Card>
 
             {/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
