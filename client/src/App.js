@@ -4,7 +4,7 @@ import Nav from './component/navbar';
 import Home from './pages/homepage'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import {setContext} from '@apollo/client/link/context';
-
+import Footer from '../src/component/footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -41,6 +41,7 @@ function App() {
     </Box>
     <Box className="main" bgcolor="primary.main">
       <Home />
+      <Footer/>
     </Box>
     </>
     </ApolloProvider>

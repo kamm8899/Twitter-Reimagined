@@ -31,3 +31,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+footer{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 5vh;
+  background-color: black;
+text-align: center;}
+
