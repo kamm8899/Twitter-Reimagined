@@ -29,6 +29,11 @@ export const ALL_POST = gql
   allPost{
     username
     postText
+    comments {
+      _id
+      createdAt
+      commentBody
+    }
   }
 
 
