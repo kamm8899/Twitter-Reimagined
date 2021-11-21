@@ -10,6 +10,9 @@ import ReplyForm from './reply';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { styled } from '@mui/material/styles';
+import {ALL_POST} from "../utils/queries";
+import { useQuery} from "@apollo/client";
+import {useEffect} from 'react';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -25,11 +28,16 @@ const ExpandMore = styled((props) => {
 
 const Post = ({ post }) => {
     const [expanded, setExpanded] = React.useState(false);
+    const { loading, postData} = useQuery(ALL_POST);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
       };
-
+     useEffect(()=> {
+        if(postData){
+            console.log(postData);
+        }
+     },[loading, postData])
     return (
         <Box>
             <Card sx={{ background: '#414a4c', mb: 2 }}>

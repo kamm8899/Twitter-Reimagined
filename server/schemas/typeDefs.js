@@ -36,7 +36,9 @@ type Query {
   user(username: String!): User
   posts(username: String): [Post]
   post(_id: ID!): Post
+  allPost: [Post]
 }
+
 
 type Mutation {
   addPost(postText: String!, username: String!): Post
@@ -52,7 +54,7 @@ type Auth {
 
 `;
 
-// login(email: String!, password: String!): Auth
+// added all post for dashboard
 
 
 

@@ -37,6 +37,15 @@ const resolvers = {
                 .select("-__v -password")
                 .populate("posts");
         },
+        allPost: async (parent, args, context) => {
+            if (context.user) {
+                const postData = await Post.find();
+
+                return postData;
+                  
+            }
+            throw new AuthenticationError('Not logged in');
+        },
     },
 
     Mutation: {
@@ -98,3 +107,5 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+
+//added allPost 
