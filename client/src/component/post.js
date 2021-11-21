@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 import { CardHeader } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
@@ -13,6 +14,8 @@ import { styled } from '@mui/material/styles';
 import {ALL_POST} from "../utils/queries";
 import { useQuery} from "@apollo/client";
 import {useEffect} from 'react';
+import Collapse from '@mui/material/Collapse';
+
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -61,6 +64,7 @@ const Post = ({ post }) => {
                         sample post body
                     </Typography>
                 </CardContent>
+                <CardActions disableSpacing>
                 <ReplyForm />
                 <ExpandMore
                     expand={expanded}
@@ -70,7 +74,14 @@ const Post = ({ post }) => {
                     > 
                     <ExpandMoreIcon />
                 </ExpandMore>
-
+                </CardActions>
+                <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    <CardContent>
+                        <Typography>
+                            SAMPLE REPLY
+                        </Typography>
+                    </CardContent>
+                </Collapse>
             </Card>
 
             {/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
