@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import { Grid, Box, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { ADD_POST } from "../utils/mutations";
-import { ALL_POST } from "../utils/queries";
+import { ALL_POST, GET_ME } from "../utils/queries";
 
 
 
 const AddPosts = () => {
 
     // const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-    const [postText, setPostText] = useState('');
+    const [userFormData, setUserFormData] = useState('');
+    const { data: userData } = useQuery(GET_ME);
 
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
-        setPostText({ ...postText, [name]: value });
+        setUserFormData({ ...userFormData, [name]: value });
 
     };
 
@@ -24,12 +25,17 @@ const AddPosts = () => {
 
         try {
             await addPost({
-                variables: { postText }
+                variables: { 
+                    ...userFormData,
+                    username : userData.me.username
+                 }
             });
 
         } catch (e) {
             console.error(e);
         }
+        // console.log(userData.me.username)
+        // console.log(userFormData)
     };
 
     const [addPost, { error }] = useMutation(ADD_POST, {
@@ -44,7 +50,7 @@ const AddPosts = () => {
             } catch (e) {
                 console.error(e)
             }
-            setPostText({
+            setUserFormData({
                 postText: ''
             });
         }
@@ -71,9 +77,10 @@ const AddPosts = () => {
                     maxRows={4}
                     focused
                     color="secondary"
-                    value={postText}
-                    text="postTextData"
-                    name="postTextData"
+                    value={userFormData.postText}
+                    text="postText"
+                    name="postText"
+                    onChange={handleInputChange}
                 />
                 <Button type="submit" variant="outlined" color="secondary" sx={{ mb: 2 }}>Post</Button>
             </form>
