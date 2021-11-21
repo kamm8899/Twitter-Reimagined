@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -25,34 +25,38 @@ const ExpandMore = styled((props) => {
   }));
 
 
-const Post = ({ post }) => {
+const Post = ({ post, username }) => {
     const [expanded, setExpanded] = React.useState(false);
+    const [showAlert, setShowAlert] = useState(false);
     const {loading, data} = useQuery(ALL_POST);
+    const postData = data?.allPost || {};
+
+    if (!postData.length) {
+        return <h3>No Post Yet</h3>;
+    }
+   
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
       };
-      console.log(data);
+
+      if (loading) {
+        return <Card>LOADING...</Card>;
+
+  }
     return (
         <Box>
             <Card sx={{ background: '#414a4c', mb: 2 }}>
-                {/* uncomment cardheader and try that format
-                to pass username prop into the header, 
-                if that doesnt work try passing it into the card
-                content placeholder below instead*/}
-                {/* <CardHeader
-                    title={username.name}
-                /> */}
                 {/* placeholder to be replaced with username prop above*/}
                 <CardContent>
                     <Typography variant='h5' gutterbottom>
-                        Username
+                    {postData.username}
                     </Typography>
                 </CardContent>
                 {/* end placeholder username */}
                 <CardContent>
                     <Typography variant="body2">
-                        {/* to be replaced with post body prop */}
+                    <p>{postData.postText}</p>
                         sample post body
                     </Typography>
                 </CardContent>
