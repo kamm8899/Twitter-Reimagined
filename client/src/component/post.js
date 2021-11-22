@@ -15,7 +15,8 @@ import { ALL_POST, ALL_USERS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import { useEffect } from 'react';
 import Collapse from '@mui/material/Collapse';
-
+import Auth from '../utils/auth';
+import AddPosts from './addPosts';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -50,31 +51,41 @@ const Post = () => {
     }
     return (
         <Box>
-            {postData &&
-                postData.map(postData => (
-                    <div key={postData._id} >
-                        <Card sx={{ background: '#414a4c', mb: 2 }}>
-                            {/* placeholder to be replaced with username prop above*/}
-                            <CardContent>
-                                <Typography variant='h5' gutterbottom>
-                                    {postData.username}
-                                </Typography>
-                            </CardContent>
-                            <CardContent>
-                                <Typography variant="body2">
-                                    <p>{postData.postText}</p>
-                                    sample post body
-                                </Typography>
-                            </CardContent>
-                            <CardActions disableSpacing>
-                                <ReplyForm />
-
-                            </CardActions>
-
-                        </Card>
-                    </div>
-                ))}
+            {Auth.loggedIn() ? (
+                <>
+                  <AddPosts></AddPosts>
+                  <Box>    
+                    {postData &&
+                    postData.map(postData => (
+                        <div key={postData._id} >
+                            <Card sx={{ background: '#414a4c', mb: 2 }}>
+                                {/* placeholder to be replaced with username prop above*/}
+                                <CardContent>
+                                    <Typography variant='h5' gutterbottom>
+                                        {postData.username}
+                                    </Typography>
+                                </CardContent>
+                                <CardContent>
+                                    <Typography variant="body2">
+                                        <p>{postData.postText}</p>
+                                    </Typography>
+                                </CardContent>
+                                <CardActions disableSpacing>
+                                    <ReplyForm />
+                                </CardActions>
+    
+                            </Card>
+                        </div>
+                    ))}
+                </Box>
+                </>
+              ) : (
+                  <Box>    
+                    <Typography color="secondary">YOU must be logged in</Typography>
+                </Box>
+              )}
         </Box>
+
 
     );
 };

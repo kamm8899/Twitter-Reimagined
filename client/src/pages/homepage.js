@@ -6,10 +6,6 @@ import Post from '../component/post';
 import AddPosts from '../component/addPosts';
 import { useMutation } from "@apollo/client";
 
-
-
-
-
 const Home = () => {
 
     return (
@@ -21,7 +17,6 @@ const Home = () => {
                 maxWidth: '50%',
                 margin: 'auto',
             }}>
-            <AddPosts></AddPosts>
             <Post></Post>
 
         </Box>

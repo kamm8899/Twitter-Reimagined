@@ -14,6 +14,7 @@ export const GET_ME = gql
           postCount
           posts {
             _id
+            postText
             commentCount
             comments {
               _id
