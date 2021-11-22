@@ -3,8 +3,8 @@ import { Grid, Box, TextField, Button, Card, Typography } from '@mui/material';
 
 const Donation = () => {
     return (
-        <Box>
-            <Typography variant='h2' gutterbottom color="secondary">
+        <Box textAlign="center">
+            <Typography variant='h2' gutterbottom color="secondary" align="center">
                 Want to Support Your First Ammendment Rights? Donate Here
             </Typography>
             <Button variant="outlined" color="secondary">$1.00</Button>
