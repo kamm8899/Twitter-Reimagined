@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_POST } from "../utils/mutations";
 import { ALL_POST, GET_ME } from "../utils/queries";
+import { useParams } from 'react-router-dom';
 
 
 
@@ -12,7 +13,7 @@ const AddPosts = () => {
     // const [userFormData, setUserFormData] = useState({ email: '', password: '' });
     const [userFormData, setUserFormData] = useState('');
     const { data: userData } = useQuery(GET_ME);
-
+    
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;

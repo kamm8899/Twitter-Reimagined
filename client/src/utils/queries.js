@@ -42,26 +42,26 @@ export const ALL_POST = gql
 }`
 
 export const ALL_USERS = gql
-  `
+`
+
 {
-  query {
-    users {
-      _id
-      username
-      email
-      firstName
-      lastName
-      password
-      postCount
-      posts {
-        _id
-        commentCount
-        comments {
-          _id
-          createdAt
-          commentBody
-        }
-      }
-    }
-  }
-}`
+   users {
+     _id
+     username
+    email
+     firstName
+     lastName
+     password
+     postCount
+     posts {
+       _id
+       postText
+       commentCount
+       comments {
+         _id
+         createdAt
+         commentBody
+       }
+     }
+   }
+ }`;

@@ -17,6 +17,7 @@ import { useEffect } from 'react';
 import Collapse from '@mui/material/Collapse';
 import Auth from '../utils/auth';
 import AddPosts from './addPosts';
+import { Link } from 'react-router-dom';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -57,7 +58,7 @@ const Post = () => {
                   <Box>    
                     {postData &&
                     postData.map(postData => (
-                        <div key={postData._id} >
+                        <Box key={postData._id} >
                             <Card sx={{ background: '#414a4c', mb: 2 }}>
                                 {/* placeholder to be replaced with username prop above*/}
                                 <CardContent>
@@ -75,7 +76,7 @@ const Post = () => {
                                 </CardActions>
     
                             </Card>
-                        </div>
+                        </Box>
                     ))}
                 </Box>
                 </>
