@@ -1,13 +1,15 @@
 import React from 'react';
-import { Grid, Box, TextField, Button, Card } from '@mui/material';
+import { Grid, Box, TextField, Button, Card, Typography } from '@mui/material';
 
 const Donation = () => {
     return (
         <Box>
-            <h1>Want to Support Your First Ammendment Rights? Donate Here</h1>
-            <Button>$1.00</Button>
-            <Button>$5.00</Button>
-            <Button>$10.00</Button>
+            <Typography variant='h2' gutterbottom color="secondary">
+                Want to Support Your First Ammendment Rights? Donate Here
+            </Typography>
+            <Button variant="outlined" color="secondary">$1.00</Button>
+            <Button variant="outlined" color="secondary">$5.00</Button>
+            <Button variant="outlined" color="secondary">$10.00</Button>
             
         </Box>
        
