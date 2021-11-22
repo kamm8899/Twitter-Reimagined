@@ -28,19 +28,20 @@ const Nav = (props) => {
             <AppBar position="static" sx={{fontFamily: "gotham"}}>
                 <Toolbar sx={{fontFamily: "gotham"}}>
                 <Grid container>
-                    <img src={onlybans} style={{ width:"200px"}}/>
+                  <Button href="/">
+                  <img src={onlybans} style={{ width:"300px"}}/>
+                  </Button>
                 </Grid>
                 {Auth.loggedIn() ? (
                 <>
-                 
-                  <Button color="secondary" onClick={Auth.logout} sx={{ pr: 2 }}>Logout</Button>
+                  <Button color="secondary" onClick={Auth.logout} sx={{ pr: 4, fontSize:"25px" }}>Logout</Button>
                 </>
               ) : (
-                <Login sx={{ pr: 2 }} />
+                  <Login />
               )}
                 
-                <Button color="secondary" sx={{ pr: 2 }}>Dashboard</Button>
-                <Button color="secondary">Donate</Button>
+                <Button color="secondary" sx={{ pr: 4, fontSize:"25px" }}>Dashboard</Button>
+                <Button color="secondary" sx={{fontSize:"25px" }}>Donate</Button>
 
                 </Toolbar>
             </AppBar>
