@@ -31,14 +31,10 @@ const ExpandMore = styled((props) => {
 
 
 const Post = () => {
-    // const [expanded, setExpanded] = React.useState(false);
     const [expanded, setExpanded] = useState(false);
     const { loading, data } = useQuery(ALL_POST);
-    const postData = data?.allPost || [];
-    // if (!postData.length) {
-    //     return <h3>No Post Yet</h3>;
-    // }
-    // console.log(data?.allPost || [])
+    const postData = [...data?.allPost || []];
+    
     console.log(postData)
 
     const handleExpandClick = () => {
@@ -56,18 +52,19 @@ const Post = () => {
                     <AddPosts></AddPosts>
                     <Box>
                         {postData &&
-                            postData.map(postData => (
-                                <Box key={postData._id} >
+                            postData.reverse().map(postDataItem => (
+                                <Box key={postDataItem._id} >
                                     <Card sx={{ background: '#414a4c', mb: 2 }}>
                                         {/* placeholder to be replaced with username prop above*/}
                                         <CardContent>
                                             <Typography variant='h5' gutterbottom>
-                                                {postData.username}
+                                                {postDataItem.username}
+                                                {postDataItem.createdAt}
                                             </Typography>
                                         </CardContent>
                                         <CardContent>
                                             <Typography variant="h3">
-                                                {postData.postText}
+                                                {postDataItem.postText}
                                             </Typography>
                                         </CardContent>
                                         <CardActions disableSpacing>
