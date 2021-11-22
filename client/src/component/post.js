@@ -67,8 +67,8 @@ const Post = () => {
                                     </Typography>
                                 </CardContent>
                                 <CardContent>
-                                    <Typography variant="body2">
-                                        <p>{postData.postText}</p>
+                                    <Typography variant="h3">
+                                        {postData.postText}
                                     </Typography>
                                 </CardContent>
                                 <CardActions disableSpacing>

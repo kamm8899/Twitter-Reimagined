@@ -83,7 +83,7 @@ const AddPosts = () => {
                     name="postText"
                     onChange={handleInputChange}
                 />
-                <Button type="submit" variant="outlined" color="secondary" sx={{ mb: 2 }}>Post</Button>
+                <Button type="submit" variant="outlined" color="secondary" sx={{ mb: 2 }} onClick={() => window.location.reload(false)}>Post</Button>
             </form>
         </Box>
     )
