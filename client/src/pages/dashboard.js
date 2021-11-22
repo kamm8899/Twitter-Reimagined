@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Box, Card , Typography, CardContent, CardActions, IconButton,   } from '@mui/material';
-import ReplyForm from './reply';
+import { Box, Card , Typography, CardContent, CardActions, IconButton  } from '@mui/material';
+
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material/styles';
 import { GET_ME } from "../utils/queries";
@@ -25,7 +25,7 @@ const Dashboard = () => {
     
     const [expanded, setExpanded] = useState(false);
     const { loading, data } = useQuery(GET_ME);
-    const meData = data?.post || [];
+    const meData = data?.me || {};
  
     console.log(meData)
 
@@ -38,13 +38,21 @@ const Dashboard = () => {
 
     }
     return (
-        <Box>
+        <Box color="primary"
+            sx={{
+                background: '#000000',
+            py: 5,
+            px: 2,
+            maxWidth: '50%',
+            margin: 'auto',
+        }}>
             {Auth.loggedIn() ? (
                 <>
                     <Box>
-                        {meData &&
-                            meData.map(postData => (
-                                <Box key={meData._id} >
+                        
+                        {meData && meData?.posts && 
+                            meData.posts.map(meDataItem => (
+                                <Box key={meDataItem._id} >
                                     <Card sx={{ background: '#414a4c', mb: 2 }}>
                                         {/* placeholder to be replaced with username prop above*/}
                                         <CardContent>
@@ -54,11 +62,11 @@ const Dashboard = () => {
                                         </CardContent>
                                         <CardContent>
                                             <Typography variant="h3">
-                                                {meData.postText}
+                                                {meDataItem.postText}
                                             </Typography>
                                         </CardContent>
                                         <CardActions disableSpacing>
-                                            <ReplyForm />
+                                            {/* <ReplyForm /> */}
                                             <ExpandMore
                                                 expand={expanded}
                                                 onClick={handleExpandClick}

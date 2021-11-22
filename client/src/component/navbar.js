@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import onlybans from '../images/onlybans.png'
 import Grid from '@mui/material/Grid';
+import {Link} from 'react-router-dom';
 
 //components
 import Login from './login';
@@ -40,7 +41,7 @@ const Nav = (props) => {
                   <Login />
               )}
                 
-                <Button color="secondary" sx={{ pr: 4, fontSize:"25px" }}>Dashboard</Button>
+                <Link to='/dashboard' ><Button color="secondary" sx={{fontSize:"25px" }}>Dashboard</Button></Link>
                 <Button color="secondary" sx={{fontSize:"25px" }}>Donate</Button>
 
                 </Toolbar>
@@ -48,6 +49,6 @@ const Nav = (props) => {
         </>
     )
 }
-
+// color="secondary" sx={{ pr: 4, fontSize:"25px" }}
 
 export default Nav;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Nav from './component/navbar';
+import Dashboard from './pages/dashboard';
 import Home from './pages/homepage'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -36,6 +37,7 @@ function App() {
                 <Box className="main" bgcolor="primary.main">
                   <Switch>
                   <Route exact path="/" component={Home} />
+                  <Route exact path="/dashboard" component={Dashboard} />
                   </Switch>
                 </Box>
                 <Box>
