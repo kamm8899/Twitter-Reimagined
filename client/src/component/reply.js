@@ -9,18 +9,15 @@ import Slide from '@mui/material/Slide';
 import IconButton from '@mui/material/IconButton';
 import AddCommentIcon from '@mui/icons-material/AddComment';
 
-const ReplyForm = () => {
-    const Transition = React.forwardRef(function Transition(props, ref) {
-        return <Slide direction="up" ref={ref} {...props} />;
-      });
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
+export default function ReplyForm () {
       const [open, setOpen] = React.useState(false);
 
       const [value, setValue] = React.useState(0);
     
-      const handleChange = (event, newValue) => {
-        setValue(newValue);
-      }
       const handleClickOpen = () => {
         setOpen(true);
       };
@@ -85,5 +82,3 @@ const ReplyForm = () => {
       </Box>
     );
 }
-
-export default ReplyForm;
