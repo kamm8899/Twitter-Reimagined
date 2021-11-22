@@ -17,7 +17,6 @@ import { useEffect } from 'react';
 import Collapse from '@mui/material/Collapse';
 import Auth from '../utils/auth';
 import AddPosts from './addPosts';
-import { Link } from 'react-router-dom';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -33,7 +32,7 @@ const ExpandMore = styled((props) => {
 
 const Post = () => {
     // const [expanded, setExpanded] = React.useState(false);
-    const [showAlert, setShowAlert] = useState(false);
+    const [expanded, setExpanded] = useState(false);
     const { loading, data } = useQuery(ALL_POST);
     const postData = data?.allPost || [];
     // if (!postData.length) {
@@ -42,9 +41,9 @@ const Post = () => {
     // console.log(data?.allPost || [])
     console.log(postData)
 
-    // const handleExpandClick = () => {
-    //     setExpanded(!expanded);
-    // };
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
 
     if (loading) {
         return <Card>LOADING...</Card>;
@@ -54,37 +53,60 @@ const Post = () => {
         <Box>
             {Auth.loggedIn() ? (
                 <>
-                  <AddPosts></AddPosts>
-                  <Box>    
-                    {postData &&
-                    postData.map(postData => (
-                        <Box key={postData._id} >
-                            <Card sx={{ background: '#414a4c', mb: 2 }}>
-                                {/* placeholder to be replaced with username prop above*/}
-                                <CardContent>
-                                    <Typography variant='h5' gutterbottom>
-                                        {postData.username}
-                                    </Typography>
-                                </CardContent>
-                                <CardContent>
-                                    <Typography variant="h3">
-                                        {postData.postText}
-                                    </Typography>
-                                </CardContent>
-                                <CardActions disableSpacing>
-                                    <ReplyForm />
-                                </CardActions>
-    
-                            </Card>
-                        </Box>
-                    ))}
-                </Box>
+                    <AddPosts></AddPosts>
+                    <Box>
+                        {postData &&
+                            postData.map(postData => (
+                                <Box key={postData._id} >
+                                    <Card sx={{ background: '#414a4c', mb: 2 }}>
+                                        {/* placeholder to be replaced with username prop above*/}
+                                        <CardContent>
+                                            <Typography variant='h5' gutterbottom>
+                                                {postData.username}
+                                            </Typography>
+                                        </CardContent>
+                                        <CardContent>
+                                            <Typography variant="h3">
+                                                {postData.postText}
+                                            </Typography>
+                                        </CardContent>
+                                        <CardActions disableSpacing>
+                                            <ReplyForm />
+                                            <ExpandMore
+                                                expand={expanded}
+                                                onClick={handleExpandClick}
+                                                aria-expanded={expanded}
+                                                aria-label="Replies"
+                                            >
+                                                <ExpandMoreIcon />
+                                            </ExpandMore>
+                                        </CardActions>
+                                        <Collapse in={expanded} timeout="auto" unmountOnExit>
+                                            <CardContent>
+                                                <Typography>
+                                                    SAMPLE REPLY
+                                                </Typography>
+                                            </CardContent>
+                                        </Collapse>
+                                    </Card>
+                                </Box>
+                            ))}
+                    </Box>
                 </>
-              ) : (
-                  <Box>    
-                    <Typography color="secondary">YOU must be logged in</Typography>
+            ) : (
+                <Box alignItems="center">
+                    <Box>
+                        <Card sx={{ background: 'black', mb: 2 }}>
+                            <CardContent>
+                                <Typography variant='h1' gutterbottom color="secondary">
+                                    YOU MUST BE LOGGED IN TO SEE POSTS
+                                </Typography>
+                            </CardContent>
+
+                        </Card>
+                    </Box>
                 </Box>
-              )}
+            )}
         </Box>
 
 
