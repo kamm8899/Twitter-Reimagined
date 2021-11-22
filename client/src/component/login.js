@@ -71,7 +71,7 @@ export default function Login() {
 
   return (
     <Box>
-      <Button onClick={handleClickOpen} color="secondary">
+      <Button onClick={handleClickOpen} color="secondary" sx={{ pr: 4, fontSize:"25px" }}>
         Login
       </Button>
       <Dialog

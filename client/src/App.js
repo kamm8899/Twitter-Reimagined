@@ -3,19 +3,20 @@ import Box from '@mui/material/Box';
 import Nav from './component/navbar';
 import Home from './pages/homepage'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-import {setContext} from '@apollo/client/link/context';
+import { setContext } from '@apollo/client/link/context';
 import Footer from '../src/component/footer';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
-const authLink = setContext((_, {headers})=>{
+const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
   return {
     headers: {
       ...headers,
-      authorization:token ? `Bearer ${token}`:"",
+      authorization: token ? `Bearer ${token}` : "",
     }
   };
 });
@@ -25,25 +26,25 @@ const client = new ApolloClient({
 });
 
 function App() {
-  // const [pages] = useState([
-  //   { name: 'About', component: <About /> },
-  //   { name: 'Projects', component: <Projects /> },
-  //   { name: 'Contact', component: <Contact /> },
-  // ]);
-
-  // const [currentPage, setCurrentPage] = useState(pages[0]);
 
   return (
     <ApolloProvider client={client}>
-    <>
-    <Box>
-      <Nav />
-    </Box>
-    <Box className="main" bgcolor="primary.main">
-      <Home />
-      <Footer/>
-    </Box>
-    </>
+      <>
+        <Router>
+          <Box>
+              <Nav />
+                <Box className="main" bgcolor="primary.main">
+                  <Switch>
+                  <Route exact path="/" component={Home} />
+                  </Switch>
+                </Box>
+                <Box>
+                <Footer />
+                </Box>
+          </Box>
+         
+        </Router>
+      </>
     </ApolloProvider>
 
   );

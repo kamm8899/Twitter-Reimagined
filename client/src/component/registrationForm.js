@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-import { Alert } from '@mui/material';
 
 const RegistrationForm = () => {
     // set initial form state
@@ -12,7 +11,7 @@ const RegistrationForm = () => {
     // set state for form validation
     const [validated] = useState(false);
     // set state for alert
-    const [showAlert, setShowAlert] = useState(false);
+    const [setShowAlert] = useState(false);
 
     const [addUser, { error }] = useMutation(ADD_USER);
 
