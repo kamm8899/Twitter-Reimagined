@@ -72,7 +72,7 @@ const Dashboard = () => {
                         {meData &&
                             meData.reverse().map(meDataItem => (
                                 <Box key={meDataItem._id} >
-                                    <Card sx={{ background: '#414a4c', mb: 2 }}>
+                                    <Card sx={{ background: '#414a4c', mb: 2, wordWrap: "break-word" }}>
                                         {/* placeholder to be replaced with username prop above*/}
                                         <CardContent>
                                             <Typography variant='h5' gutterbottom>
@@ -80,13 +80,12 @@ const Dashboard = () => {
                                             </Typography>
                                         </CardContent>
                                         <CardContent>
-                                            <Typography variant="h3">
+                                            <Typography variant="body1">
                                                 {meDataItem.postText}
                                             </Typography>
-
-                                            <Button type="button" onClick={(event) => handleRemovePost(event, meDataItem._id) }
-                                            variant="outlined" color="secondary" sx={{ mb: 2 }} >Delete</Button>
                                         </CardContent>
+                                        <Button type="button" onClick={(event) => handleRemovePost(event, meDataItem._id) }
+                                            variant="outlined" color="secondary" sx={{ mb: 2, ml:1 }} >Delete</Button>
                                         <CardActions disableSpacing>
                                             {/* <ReplyForm /> */}
                                             <ExpandMore

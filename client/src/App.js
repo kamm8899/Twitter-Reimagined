@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Nav from './component/navbar';
 import Dashboard from './pages/dashboard';
 import Home from './pages/homepage'
+import Donation from './pages/donationpage';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Footer from '../src/component/footer';
@@ -38,6 +39,7 @@ function App() {
                   <Switch>
                   <Route exact path="/" component={Home} />
                   <Route exact path="/dashboard" component={Dashboard} />
+                  <Route exact path="/donation" component={Donation} />
                   </Switch>
                 </Box>
                 <Box>
