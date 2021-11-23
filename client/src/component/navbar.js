@@ -37,7 +37,7 @@ const Nav = (props) => {
                 <>
                   <Button className="navLink" color="secondary" onClick={Auth.logout} sx={{ pr: 4, fontSize:"25px" }}>Logout</Button>
                   <Button className="navLink" color="secondary" sx={{pr: 4,fontSize:"25px" }} href="/dashboard">Dashboard</Button>
-                  <Button className="navLink" color="secondary" sx={{pr: 4,fontSize:"25px" }}>Donate</Button>
+                  <Button className="navLink" color="secondary" sx={{pr: 4,fontSize:"25px" }} href="/donation">Donate</Button>
                 </>
               ) : (
                   <Login />
