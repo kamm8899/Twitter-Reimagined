@@ -90,6 +90,22 @@ const resolvers = {
             // throw authentication error here
         },
 
+        removePost: async (parent, { _id }, context) => {
+            if (context.user) {
+                const post = await Post.deleteOne({ _id: _id });
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { posts: _id } }
+                );
+
+                return post;
+            }
+
+            // throw authentication error here
+        },
+
+
         addComment: async (parent, { postId, commentBody }, context) => {
             if (context.user) {
                 const updatedPost = await Post.findOneAndUpdate(

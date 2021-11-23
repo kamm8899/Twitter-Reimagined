@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Box, Card , Typography, CardContent, CardActions, IconButton  } from '@mui/material';
-
+import Button from '@mui/material/Button';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material/styles';
 import { GET_ME } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import Collapse from '@mui/material/Collapse';
 import Auth from '../utils/auth';
+import { useMutation } from "@apollo/client";
+import { REMOVE_POST } from "../utils/mutations";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -34,6 +36,20 @@ const Dashboard = () => {
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+    const [removePost, { error }] = useMutation(REMOVE_POST) 
+    const handleRemovePost = async (event, id) => {
+        try {
+            await removePost({
+                variables: { 
+                    _id: id
+                 }
+            });
+
+        } catch (e) {
+            console.error(e);
+        }
+
+    }
 
     if (loading) {
         return <Card>LOADING...</Card>;
@@ -66,6 +82,8 @@ const Dashboard = () => {
                                             <Typography variant="h3">
                                                 {meDataItem.postText}
                                             </Typography>
+                                            <Button type="button" onClick={(event) => handleRemovePost(event, meDataItem._id) }
+                                            variant="outlined" color="secondary" sx={{ mb: 2 }} >Delete</Button>
                                         </CardContent>
                                         <CardActions disableSpacing>
                                             {/* <ReplyForm /> */}
