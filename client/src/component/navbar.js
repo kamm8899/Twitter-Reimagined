@@ -36,14 +36,12 @@ const Nav = (props) => {
                 {Auth.loggedIn() ? (
                 <>
                   <Button color="secondary" onClick={Auth.logout} sx={{ pr: 4, fontSize:"25px" }}>Logout</Button>
+                  <Button color="secondary" sx={{pr: 4,fontSize:"25px" }} href="/dashboard">Dashboard</Button>
+                  <Button color="secondary" sx={{pr: 4,fontSize:"25px" }}>Donate</Button>
                 </>
               ) : (
                   <Login />
               )}
-                
-                
-                <Button color="secondary" sx={{pr: 4,fontSize:"25px" }}>Donate</Button>
-
                 </Toolbar>
             </AppBar>
         </>
