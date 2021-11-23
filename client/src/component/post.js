@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import { CardHeader } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import AddCommentIcon from '@mui/icons-material/AddComment';
-import ReplyForm from './reply';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { styled } from '@mui/material/styles';
@@ -17,6 +16,9 @@ import { useEffect } from 'react';
 import Collapse from '@mui/material/Collapse';
 import Auth from '../utils/auth';
 import AddPosts from './addPosts';
+import {useMutation} from '@apollo/client';
+import {ADD_COMMENT} from '../utils/mutations'
+// import ReplyForm from '../component/reply';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -68,7 +70,7 @@ const Post = () => {
                                             </Typography>
                                         </CardContent>
                                         <CardActions disableSpacing>
-                                            <ReplyForm />
+                                            {/* <ReplyForm /> */}
                                             <ExpandMore
                                                 expand={expanded}
                                                 onClick={handleExpandClick}
@@ -81,7 +83,7 @@ const Post = () => {
                                         <Collapse in={expanded} timeout="auto" unmountOnExit>
                                             <CardContent>
                                                 <Typography>
-                                                    SAMPLE REPLY
+                                                   Sample Reply
                                                 </Typography>
                                             </CardContent>
                                         </Collapse>
