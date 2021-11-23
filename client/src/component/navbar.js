@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import onlybans from '../images/onlybans.png'
 import Grid from '@mui/material/Grid';
+import {Link} from 'react-router-dom';
 
 //components
 import Login from './login';
@@ -29,25 +30,23 @@ const Nav = (props) => {
                 <Toolbar sx={{fontFamily: "gotham"}}>
                 <Grid container>
                   <Button href="/">
-                  <img src={onlybans} style={{ width:"300px"}}/>
+                  <img className="logo" src={onlybans} style={{ width:"300px"}}/>
                   </Button>
                 </Grid>
                 {Auth.loggedIn() ? (
                 <>
-                  <Button color="secondary" onClick={Auth.logout} sx={{ pr: 4, fontSize:"25px" }}>Logout</Button>
+                  <Button className="navLink" color="secondary" onClick={Auth.logout} sx={{ pr: 4, fontSize:"25px" }}>Logout</Button>
+                  <Button className="navLink" color="secondary" sx={{pr: 4,fontSize:"25px" }} href="/dashboard">Dashboard</Button>
+                  <Button className="navLink" color="secondary" sx={{pr: 4,fontSize:"25px" }}>Donate</Button>
                 </>
               ) : (
                   <Login />
               )}
-                
-                <Button color="secondary" sx={{ pr: 4, fontSize:"25px" }}>Dashboard</Button>
-                <Button color="secondary" sx={{fontSize:"25px" }}>Donate</Button>
-
                 </Toolbar>
             </AppBar>
         </>
     )
 }
-
+// color="secondary" sx={{ pr: 4, fontSize:"25px" }}
 
 export default Nav;

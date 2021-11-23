@@ -46,6 +46,8 @@ type Mutation {
   addComment(postId: ID!, commentBody: String!): Post
   addUser(username: String!, email: String!, password: String!, firstName: String!, lastName: String!): Auth
   login(email: String!, password: String!): Auth
+  removePost( _id: ID):User
+  updatePost(_id: ID, postText: String): Post
 }
 
 type Auth {
@@ -55,7 +57,6 @@ type Auth {
 
 `;
 
-// added all post for dashboard
 
 
 

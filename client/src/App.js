@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Nav from './component/navbar';
+import Dashboard from './pages/dashboard';
 import Home from './pages/homepage'
 import Donation from './pages/donationpage';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
@@ -37,7 +38,7 @@ function App() {
                 <Box className="main" bgcolor="primary.main">
                   <Switch>
                   <Route exact path="/" component={Home} />
-                  <Route exact path="/Donation" component={Donation} />
+                  <Route exact path="/dashboard" component={Dashboard} />
                   </Switch>
                 </Box>
                 <Box>
