@@ -56,7 +56,7 @@ const Post = () => {
                         {postData &&
                             postData.reverse().map(postDataItem => (
                                 <Box key={postDataItem._id} >
-                                    <Card sx={{ background: '#414a4c', mb: 2 }}>
+                                    <Card sx={{ background: '#414a4c', mb: 2, wordWrap: "break-word" }}>
                                         {/* placeholder to be replaced with username prop above*/}
                                         <CardContent>
                                             <Typography variant='h5' gutterbottom>
@@ -65,20 +65,20 @@ const Post = () => {
                                             </Typography>
                                         </CardContent>
                                         <CardContent>
-                                            <Typography variant="h3">
+                                            <Typography variant="body1">
                                                 {postDataItem.postText}
                                             </Typography>
                                         </CardContent>
                                         <CardActions disableSpacing>
                                             {/* <ReplyForm /> */}
-                                            <ExpandMore
+                                            {/* <ExpandMore
                                                 expand={expanded}
                                                 onClick={handleExpandClick}
                                                 aria-expanded={expanded}
                                                 aria-label="Replies"
                                             >
                                                 <ExpandMoreIcon />
-                                            </ExpandMore>
+                                            </ExpandMore> */}
                                         </CardActions>
                                         <Collapse in={expanded} timeout="auto" unmountOnExit>
                                             <CardContent>
