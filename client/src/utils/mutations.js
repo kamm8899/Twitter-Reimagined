@@ -53,7 +53,17 @@ mutation addComment($postId: ID!, $commentBody: String!) {
 }
 `;
 
+export const REMOVE_POST = gql `
+mutation removePost($_id: ID!) {
+	removePost(_id: $_id) {
+    _id
+    
+    }
+  }
+
+`
 
 
 
-export default { LOGIN_USER, ADD_USER, ADD_POST, ADD_COMMENT }
+
+export default { LOGIN_USER, ADD_USER, ADD_POST, ADD_COMMENT, REMOVE_POST }
