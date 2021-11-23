@@ -38,5 +38,28 @@ footer{
   bottom: 0;
   height: 5vh;
   background-color: black;
-text-align: center;}
+text-align: center;
+}
 
+.navLink {
+  margin-right: 40px !important;
+}
+
+@media only screen and (max-width: 1250px) {
+  .navLink {
+    margin-right: 40px !important;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .navLink {
+    margin-right: 40px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .logo {
+    width: 200px !important;
+    height: auto !important;
+  }
+}

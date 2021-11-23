@@ -30,14 +30,14 @@ const Nav = (props) => {
                 <Toolbar sx={{fontFamily: "gotham"}}>
                 <Grid container>
                   <Button href="/">
-                  <img src={onlybans} style={{ width:"300px"}}/>
+                  <img className="logo" src={onlybans} style={{ width:"300px"}}/>
                   </Button>
                 </Grid>
                 {Auth.loggedIn() ? (
                 <>
-                  <Button color="secondary" onClick={Auth.logout} sx={{ pr: 4, fontSize:"25px" }}>Logout</Button>
-                  <Button color="secondary" sx={{pr: 4,fontSize:"25px" }} href="/dashboard">Dashboard</Button>
-                  <Button color="secondary" sx={{pr: 4,fontSize:"25px" }}>Donate</Button>
+                  <Button className="navLink" color="secondary" onClick={Auth.logout} sx={{ pr: 4, fontSize:"25px" }}>Logout</Button>
+                  <Button className="navLink" color="secondary" sx={{pr: 4,fontSize:"25px" }} href="/dashboard">Dashboard</Button>
+                  <Button className="navLink" color="secondary" sx={{pr: 4,fontSize:"25px" }}>Donate</Button>
                 </>
               ) : (
                   <Login />
