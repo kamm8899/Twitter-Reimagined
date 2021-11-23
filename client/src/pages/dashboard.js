@@ -44,6 +44,7 @@ const Dashboard = () => {
                     _id: id
                  }
             });
+            window.location.reload(false)
 
         } catch (e) {
             console.error(e);
@@ -82,6 +83,7 @@ const Dashboard = () => {
                                             <Typography variant="h3">
                                                 {meDataItem.postText}
                                             </Typography>
+
                                             <Button type="button" onClick={(event) => handleRemovePost(event, meDataItem._id) }
                                             variant="outlined" color="secondary" sx={{ mb: 2 }} >Delete</Button>
                                         </CardContent>
