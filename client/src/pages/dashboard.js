@@ -25,9 +25,11 @@ const Dashboard = () => {
     
     const [expanded, setExpanded] = useState(false);
     const { loading, data } = useQuery(GET_ME);
-    const meData = data?.me || {};
+    console.log("data fetch " +JSON.stringify(data, null, 2));
+    const meData = [...data?.me.posts || []];
+    const name = data?.me.username || "";
  
-    console.log(meData)
+    console.log("medata" + JSON.stringify(meData, null, 2))
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -50,14 +52,14 @@ const Dashboard = () => {
                 <>
                     <Box>
                         
-                        {meData && meData?.posts && 
-                            meData.posts.map(meDataItem => (
+                        {meData &&
+                            meData.reverse().map(meDataItem => (
                                 <Box key={meDataItem._id} >
                                     <Card sx={{ background: '#414a4c', mb: 2 }}>
                                         {/* placeholder to be replaced with username prop above*/}
                                         <CardContent>
                                             <Typography variant='h5' gutterbottom>
-                                                {meData.username}
+                                                {name}
                                             </Typography>
                                         </CardContent>
                                         <CardContent>
@@ -79,7 +81,7 @@ const Dashboard = () => {
                                         <Collapse in={expanded} timeout="auto" unmountOnExit>
                                             <CardContent>
                                                 <Typography>
-                                                    SAMPLE REPLY
+                                                   
                                                 </Typography>
                                             </CardContent>
                                         </Collapse>
