@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
+import Grid from '@mui/material/Grid';
+import {Card,CardContent,CardActions,CardMedia} from '@mui/material/';
 import Typography from '@mui/material/Typography';
 import { CardHeader } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
@@ -20,7 +19,7 @@ import AddPosts from './addPosts';
 import {useMutation} from '@apollo/client';
 import {ADD_COMMENT} from '../utils/mutations'
 // import ReplyForm from '../component/reply';
-
+import Chase from '../images/chase2.png'
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -94,18 +93,25 @@ const Post = () => {
                     </Box>
                 </>
             ) : (
+                
                 <Box alignItems="center">
                     <Box>
-                        <Card sx={{ background: 'black', mb: 2 }}>
+                        <Card sx={{ background: 'black'}}>
                             <CardContent>
-                                <Typography variant='h1' gutterbottom color="secondary">
-                                    YOU MUST BE LOGGED IN TO SEE POSTS
+                                <CardMedia
+                                component="img"
+                                alt="uncle chase"
+                                image={Chase}
+                                />
+                                <Typography variant='h4' gutterbottom color="secondary" sx={{wordWrap: "break-word"}}>
+                                    YOU MUST BE LOGGED IN TO SEE POSTS!
                                 </Typography>
                             </CardContent>
-
+                            
                         </Card>
                     </Box>
                 </Box>
+                
             )}
         </Box>
 
