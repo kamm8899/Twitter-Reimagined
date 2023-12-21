@@ -6,7 +6,7 @@ import { ADD_POST } from "../utils/mutations";
 import { ALL_POST, GET_ME } from "../utils/queries";
 import { useParams } from 'react-router-dom';
 
-
+//
 
 const AddPosts = () => {
 
